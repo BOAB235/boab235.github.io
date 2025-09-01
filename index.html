@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>1200W 400V/48V LLC DC-DC Converter Design</title>
+<style>
+/* ================= Design Tokens ================ */
+:root {
+  --bg:        #f6f7fb;
+  --text:      #1f2328;
+  --muted:     #6b7280;
+  --hairline:  #e5e7eb;
+  --accent:    #2563eb;  /* modern blue */
+  --accent-700:#1d4ed8;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:       #0f172a;
+    --text:     #e5e7eb;
+    --muted:    #94a3b8;
+    --hairline: #243044;
+    --accent:   #60a5fa;
+    --accent-700:#93c5fd;
+  }
+}
+
+/* ================= Base ================= */
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 24px 32px;
+}
+
+/* ================= Typography Hierarchy ================= */
+.H1_c {
+  font-size: clamp(1.9rem, 3vw + 0.5rem, 2.6rem);
+  font-weight: 750;
+  margin: 0 0 1rem 1rem;
+  color: var(--text);
+  border-bottom: 1px solid var(--hairline);
+  padding-bottom: 0.6rem;
+}
+
+.H2_c {
+  font-size: clamp(1.25rem, 1.2vw + 0.8rem, 1.5rem);
+  font-weight: 650;
+  color: var(--accent-700);
+  margin: 1.5rem 0 0.75rem 2rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.H3_c {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--muted);
+  margin: 1.1rem 0 0.4rem 3rem;
+}
+
+.H4_c {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--muted);
+  margin: 0.8rem 0 0.3rem 4rem;
+}
+
+/* ================= Links ================= */
+a {
+  color: var(--accent-700);
+  /*text-decoration: underline;*/
+  /*text-decoration-thickness: 2px;*/
+  /*text-underline-offset: 3px;*/
+  /*text-decoration-color: color-mix(in oklab, var(--accent-700) 60%, transparent);*/
+  /*transition: color 120ms ease, text-decoration-color 120ms ease;*/
+}
+a:hover {
+  color: var(--accent);
+  /*text-decoration-color: var(--accent);*/
+}
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Main link (slightly bigger, no button look) */
+.main_a {
+  display: inline-block;
+  margin: 0.75rem 0 1.25rem 1rem;
+  font-weight: 650;
+  font-size: 1.05rem;
+}
+.main_a::after {
+  content: " →";
+  transition: transform 120ms ease;
+}
+.main_a:hover::after {
+  transform: translateX(2px);
+}
+
+/* Secondary links (PDF / Folder) */
+.pdf_folder_a {
+  display: inline-block;
+  margin: 0.3rem 1rem 0.3rem 4rem;
+  color: var(--muted);
+  font-size: 0.96rem;
+  text-decoration-thickness: 1.5px;
+  /*text-underline-offset: 2px;*/
+}
+.pdf_folder_a:hover {
+  color: var(--accent-700);
+  text-decoration-thickness: 2px;
+}
+
+
+</style>
+</head>
+<body>
+
+<h1 class="H1_c">1200W 400V/48V LLC DC-DC Converter Design</h1>
+
+<a class="main_a" href="https://github.com/BOAB235/Design_of_1200W_LLC_DCDC">
+  Open the main folder
+</a>
+
+<h2 class="H2_c">
+<a href="https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/03_hw_design"> 
+Hardware Design</a>
+</h2>
+
+<h3 class="H3_c">
+<a href = "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/03_hw_design/01_design_justification">
+Design Justification
+</a>
+</h3>
+<h4 class="H4_c">LLC Tank Choice</h3>
+<a class="pdf_folder_a" href="https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/blob/main/03_hw_design/01_design_justification/01_llc_tank/01_LLC_48v_LLC_tank_design_note_v2.pdf">[PDF]</a>
+<a class="pdf_folder_a" href="https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/03_hw_design/01_design_justification/01_llc_tank">[Folder]</a>
+
+<h4 class="H4_c">Resonant and Output Capacitor</h3>
+
+</body>
+</html>
