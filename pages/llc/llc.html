@@ -12,8 +12,8 @@
 // Main page configuration
 const mainConfig = {
   title: "1200W 400V/48V LLC DC-DC Converter Design",
-  description: "A comprehensive design and validation project for a high-efficiency LLC resonant DC-DC converter. This project covers hardware design, magnetic components optimization, and EMC testing for industrial power conversion applications.",
-  image: "imgs/main_project.png",  // Add your main image path here or leave empty ""
+  description: "This work presents an open-source design and experimental evaluation of an LLC resonant DC-DC converter. The project includes hardware development based on planar magnetic components, firmware implementation on an STM32 microcontroller, and comprehensive converter testing. It serves as an effective introductory platform for understanding the practical and industrial challenges associated with power electronics design.",
+  image: "imgs/dcdc_all2.png",  // Add your main image path here or leave empty ""
   mainLink: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC"
 };
 
@@ -29,31 +29,24 @@ const projectData = [
         projects: [
           {
             title: "LLC Tank Choice",
-            description: "Design and optimization of the LLC resonant tank parameters for efficient power conversion.",
-            image: "imgs/llc_tank.png",
-            pdf: "https://boab235.github.io/pages/llc/pdfs/01_LLC_48v_LLC_tank_design_note_v2.pdf",
+            description: "Design and optimization of the LLC resonant tank parameters.",
+            image: "pdfs/01_LLC_48v_LLC_tank_design_note_v2.png",
+            pdf: "pdfs/01_LLC_48v_LLC_tank_design_note_v2.pdf",
             folder: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/03_hw_design/01_design_justification/01_llc_tank"
           },
           {
             title: "Resonant and Output Capacitor",
-            description: "Selection and design of resonant capacitors and output capacitors for voltage regulation.",
-            image: "",
-            pdf: "https://boab235.github.io/pages/llc/pdfs/03_LLC_48v_LLC_output_capa_v4.pdf",
+            description: "Selection and design of resonant capacitors and output capacitors.",
+            image: "pdfs/03_LLC_48v_LLC_output_capa_v4.png",
+            pdf: "pdfs/03_LLC_48v_LLC_output_capa_v4.pdf",
             folder: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/03_hw_design/01_design_justification/03_Resonant_and_Output_Capacitor"
           },
           {
             title: "Design of Magnetic Cores Lm and Lr",
             description: "Magnetic core selection and design for transformer and resonant inductor optimization.",
-            image: "",
-            pdf: "https://boab235.github.io/pages/llc/pdfs/01_LLC_48v_LLC_Magnetic_Cores_V3.pdf",
+            image: "pdfs/01_LLC_48v_LLC_Magnetic_Cores_V3.png",
+            pdf: "pdfs/01_LLC_48v_LLC_Magnetic_Cores_V3.pdf",
             folder: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/03_hw_design/01_design_justification/01_transformer_and_Lr_cores"
-          }, 
-          {
-            title: "New test to BE REMOVED ",
-            description: "Detailed design and construction of the LLC transformer for optimal performance.",
-            image: "",
-            pdf: "https://boab235.github.io/pages/llc/pdfs/02_LLC_48v_LLC_transformer_design_note_v3.pdf",
-            folder: ""
           }
         ]
       }
@@ -75,9 +68,9 @@ const projectData = [
         projects: [
           {
             title: "Conducted Emissions Test",
-            description: "EMC testing and validation for conducted emissions compliance with industry standards.",
-            image: "",
-            pdf: "https://boab235.github.io/pages/llc/pdfs/EMC_Conducted_Emissions_Test_V4.pdf",
+            description: "EMC testing and validation for conducted emissions",
+            image: "pdfs/EMC_Conducted_Emissions_Test_V4.png",
+            pdf: "pdfs/EMC_Conducted_Emissions_Test_V4.pdf",
             folder: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/05_validations/02_emc/01_Conducted_Emissions_Test"
           }
         ]
@@ -86,39 +79,7 @@ const projectData = [
   }, 
 
 
-    {
-    tabTitle: "NEW TAB TEST",
-    tabLink: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/05_validations",
-    subtabs: [
-      {
-        subtabTitle: "EMI Tests",
-        subtabLink: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/05_validations/02_emc",
-        projects: [
-          {
-            title: "Conducted Emissions Test",
-            description: "EMC testing and validation for conducted emissions compliance with industry standards.",
-            image: "",
-            pdf: "https://boab235.github.io/pages/llc/pdfs/EMC_Conducted_Emissions_Test_V4.pdf",
-            folder: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/05_validations/02_emc/01_Conducted_Emissions_Test"
-          }
-        ]
-      }, 
 
-      {
-        subtabTitle: "NEW SUBTITLE TEST EMI Tests",
-        subtabLink: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/05_validations/02_emc",
-        projects: [
-          {
-            title: "Conducted Emissions Test",
-            description: "EMC testing and validation for conducted emissions compliance with industry standards.",
-            image: "",
-            pdf: "https://boab235.github.io/pages/llc/pdfs/EMC_Conducted_Emissions_Test_V4.pdf",
-            folder: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/05_validations/02_emc/01_Conducted_Emissions_Test"
-          }
-        ]
-      }
-    ]
-  }
   // Add more tabs here:
   // {
   //   tabTitle: "New Tab",
@@ -202,7 +163,7 @@ body {
   border-radius: 8px;
   overflow: hidden;
   cursor: pointer;
-  background: var(--hairline);
+  background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -212,7 +173,8 @@ body {
 .hero-image-container img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  /* object-fit: cover; */
+  object-fit: contain;
   transition: transform 0.3s;
 }
 
@@ -404,7 +366,7 @@ body {
 .project-image {
   width: 100%;
   height: 180px;
-  background: var(--hairline);
+  background: transparent;
   border-radius: 6px;
   margin-bottom: 12px;
   cursor: pointer;
@@ -418,7 +380,8 @@ body {
 .project-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  /* object-fit: cover; */
+  object-fit: contain;
   transition: transform 0.3s;
 }
 
