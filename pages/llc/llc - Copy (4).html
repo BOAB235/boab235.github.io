@@ -4,133 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>1200W 400V/48V LLC DC-DC Converter Design</title>
-
-<!-- ============================================================================ -->
-<!-- ⚙️ EDIT YOUR DATA HERE - This is the ONLY section you need to modify       -->
-<!-- ============================================================================ -->
-<script>
-// Main page configuration
-const mainConfig = {
-  title: "1200W 400V/48V LLC DC-DC Converter Design",
-  description: "A comprehensive design and validation project for a high-efficiency LLC resonant DC-DC converter. This project covers hardware design, magnetic components optimization, and EMC testing for industrial power conversion applications.",
-  image: "imgs/main_project.png",  // Add your main image path here or leave empty ""
-  mainLink: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC"
-};
-
-// Project data - tabs, subtabs, and projects
-const projectData = [
-  {
-    tabTitle: "Hardware Design",
-    tabLink: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/03_hw_design",
-    subtabs: [
-      {
-        subtabTitle: "Design Justification",
-        subtabLink: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/03_hw_design/01_design_justification",
-        projects: [
-          {
-            title: "LLC Tank Choice",
-            description: "Design and optimization of the LLC resonant tank parameters for efficient power conversion.",
-            image: "imgs/llc_tank.png",
-            pdf: "https://boab235.github.io/pages/llc/pdfs/01_LLC_48v_LLC_tank_design_note_v2.pdf",
-            folder: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/03_hw_design/01_design_justification/01_llc_tank"
-          },
-          {
-            title: "Resonant and Output Capacitor",
-            description: "Selection and design of resonant capacitors and output capacitors for voltage regulation.",
-            image: "",
-            pdf: "https://boab235.github.io/pages/llc/pdfs/03_LLC_48v_LLC_output_capa_v4.pdf",
-            folder: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/03_hw_design/01_design_justification/03_Resonant_and_Output_Capacitor"
-          },
-          {
-            title: "Design of Magnetic Cores Lm and Lr",
-            description: "Magnetic core selection and design for transformer and resonant inductor optimization.",
-            image: "",
-            pdf: "https://boab235.github.io/pages/llc/pdfs/01_LLC_48v_LLC_Magnetic_Cores_V3.pdf",
-            folder: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/03_hw_design/01_design_justification/01_transformer_and_Lr_cores"
-          }, 
-          {
-            title: "New test to BE REMOVED ",
-            description: "Detailed design and construction of the LLC transformer for optimal performance.",
-            image: "",
-            pdf: "https://boab235.github.io/pages/llc/pdfs/02_LLC_48v_LLC_transformer_design_note_v3.pdf",
-            folder: ""
-          }
-        ]
-      }
-      // Add more subtabs here:
-      // {
-      //   subtabTitle: "Schematic",
-      //   subtabLink: "https://github.com/...",
-      //   projects: [...]
-      // }
-    ]
-  },
-  {
-    tabTitle: "Test & Validation",
-    tabLink: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/05_validations",
-    subtabs: [
-      {
-        subtabTitle: "EMI Tests",
-        subtabLink: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/05_validations/02_emc",
-        projects: [
-          {
-            title: "Conducted Emissions Test",
-            description: "EMC testing and validation for conducted emissions compliance with industry standards.",
-            image: "",
-            pdf: "https://boab235.github.io/pages/llc/pdfs/EMC_Conducted_Emissions_Test_V4.pdf",
-            folder: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/05_validations/02_emc/01_Conducted_Emissions_Test"
-          }
-        ]
-      }
-    ]
-  }, 
-
-
-    {
-    tabTitle: "NEW TAB TEST",
-    tabLink: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/05_validations",
-    subtabs: [
-      {
-        subtabTitle: "EMI Tests",
-        subtabLink: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/05_validations/02_emc",
-        projects: [
-          {
-            title: "Conducted Emissions Test",
-            description: "EMC testing and validation for conducted emissions compliance with industry standards.",
-            image: "",
-            pdf: "https://boab235.github.io/pages/llc/pdfs/EMC_Conducted_Emissions_Test_V4.pdf",
-            folder: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/05_validations/02_emc/01_Conducted_Emissions_Test"
-          }
-        ]
-      }, 
-
-      {
-        subtabTitle: "NEW SUBTITLE TEST EMI Tests",
-        subtabLink: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/05_validations/02_emc",
-        projects: [
-          {
-            title: "Conducted Emissions Test",
-            description: "EMC testing and validation for conducted emissions compliance with industry standards.",
-            image: "",
-            pdf: "https://boab235.github.io/pages/llc/pdfs/EMC_Conducted_Emissions_Test_V4.pdf",
-            folder: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/05_validations/02_emc/01_Conducted_Emissions_Test"
-          }
-        ]
-      }
-    ]
-  }
-  // Add more tabs here:
-  // {
-  //   tabTitle: "New Tab",
-  //   tabLink: "https://github.com/...",
-  //   subtabs: [...]
-  // }
-];
-</script>
-<!-- ============================================================================ -->
-<!-- ⚙️ END OF CONFIGURATION - Don't modify anything below this line            -->
-<!-- ============================================================================ -->
-
 <style>
 /* ================= Design Tokens ================ */
 :root {
@@ -344,26 +217,26 @@ body {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin: 24px 0 16px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid var(--hairline);
+  margin: 32px 0 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--hairline);
 }
 
 .subtab-header h2 {
-  font-size: 1.1rem;
-  font-weight: 600;
+  font-size: 1.35rem;
+  font-weight: 650;
   color: var(--accent-700);
   margin: 0;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
 }
 
 .subtab-github-link {
   color: var(--accent-700);
   text-decoration: none;
-  font-size: 0.9rem;
-  opacity: 0.6;
+  font-size: 1.1rem;
+  opacity: 0.7;
   transition: opacity 0.2s, transform 0.2s;
   display: inline-flex;
   align-items: center;
@@ -539,7 +412,101 @@ body {
 
 <script>
 // ========================================================================================
-// 🔧 RENDERING LOGIC - DO NOT MODIFY BELOW
+// MAIN CONFIGURATION - EASY TO CUSTOMIZE
+// Update main title, image, description, and link here
+// ========================================================================================
+
+const mainConfig = {
+  title: "1200W 400V/48V LLC DC-DC Converter Design",
+  description: "A comprehensive design and validation project for a high-efficiency LLC resonant DC-DC converter. This project covers hardware design, magnetic components optimization, and EMC testing for industrial power conversion applications.",
+  image: "imgs/main_project.png", // Add your main project image here or leave empty ""
+  mainLink: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC"
+};
+
+// ========================================================================================
+// PROJECT DATA - TABS AND PROJECTS
+// To add new content:
+// 1. Add a new tab object with title and projects array
+// 2. Add projects with title, description, image (optional), pdf, and folder links
+// ========================================================================================
+
+const projectData = [
+  {
+    tabTitle: "Hardware Design",
+    tabLink: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/03_hw_design",
+    subtabs: [
+      {
+        subtabTitle: "Design Justification",
+        subtabLink: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/03_hw_design/01_design_justification",
+        projects: [
+          {
+            title: "LLC Tank Choice",
+            description: "Design and optimization of the LLC resonant tank parameters for efficient power conversion.",
+            image: "imgs/llc_tank.png", // Add your image here or leave empty
+            pdf: "https://boab235.github.io/pages/llc/pdfs/01_LLC_48v_LLC_tank_design_note_v2.pdf",
+            folder: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/03_hw_design/01_design_justification/01_llc_tank"
+          },
+          {
+            title: "Resonant and Output Capacitor",
+            description: "Selection and design of resonant capacitors and output capacitors for voltage regulation.",
+            image: "", // Empty for placeholder
+            pdf: "https://boab235.github.io/pages/llc/pdfs/03_LLC_48v_LLC_output_capa_v4.pdf",
+            folder: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/03_hw_design/01_design_justification/03_Resonant_and_Output_Capacitor"
+          },
+          {
+            title: "Design of Magnetic Cores Lm and Lr",
+            description: "Magnetic core selection and design for transformer and resonant inductor optimization.",
+            image: "",
+            pdf: "https://boab235.github.io/pages/llc/pdfs/01_LLC_48v_LLC_Magnetic_Cores_V3.pdf",
+            folder: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/03_hw_design/01_design_justification/01_transformer_and_Lr_cores"
+          }
+        ]
+      }
+      // Add more subtabs here:
+      // {
+      //   subtabTitle: "Schematic",
+      //   subtabLink: "https://github.com/your-repo/tree/main/folder/schematic",
+      //   projects: [...]
+      // }
+    ]
+  },
+  {
+    tabTitle: "Test & Validation",
+    tabLink: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/05_validations",
+    subtabs: [
+      {
+        subtabTitle: "EMI Tests",
+        subtabLink: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/05_validations/02_emc",
+        projects: [
+          {
+            title: "Conducted Emissions Test",
+            description: "EMC testing and validation for conducted emissions compliance with industry standards.",
+            image: "",
+            pdf: "https://boab235.github.io/pages/llc/pdfs/EMC_Conducted_Emissions_Test_V4.pdf",
+            folder: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/05_validations/02_emc/01_Conducted_Emissions_Test"
+          }
+        ]
+      }
+    ]
+  }
+  // Add more tabs here as needed:
+  // {
+  //   tabTitle: "New Tab Name",
+  //   tabLink: "https://github.com/your-repo/tree/main/folder",
+  //   subtabs: [
+  //     {
+  //       subtabTitle: "Subtab Name",
+  //       subtabLink: "https://github.com/your-repo/tree/main/folder/subfolder",
+  //       projects: [
+  //         { title: "Project 1", description: "...", image: "", pdf: "...", folder: "..." }
+  //       ]
+  //     }
+  //   ]
+  // }
+];
+
+// ========================================================================================
+// RENDERING LOGIC - NO NEED TO MODIFY BELOW
 // ========================================================================================
 
 function renderHero() {
@@ -749,7 +716,7 @@ document.getElementById('imageModal').onclick = function(e) {
   }
 };
 
-// Initialize page on load
+// Initialize on page load
 renderHero();
 renderTabs();
 </script>

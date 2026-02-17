@@ -4,133 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>1200W 400V/48V LLC DC-DC Converter Design</title>
-
-<!-- ============================================================================ -->
-<!-- ⚙️ EDIT YOUR DATA HERE - This is the ONLY section you need to modify       -->
-<!-- ============================================================================ -->
-<script>
-// Main page configuration
-const mainConfig = {
-  title: "1200W 400V/48V LLC DC-DC Converter Design",
-  description: "A comprehensive design and validation project for a high-efficiency LLC resonant DC-DC converter. This project covers hardware design, magnetic components optimization, and EMC testing for industrial power conversion applications.",
-  image: "imgs/main_project.png",  // Add your main image path here or leave empty ""
-  mainLink: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC"
-};
-
-// Project data - tabs, subtabs, and projects
-const projectData = [
-  {
-    tabTitle: "Hardware Design",
-    tabLink: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/03_hw_design",
-    subtabs: [
-      {
-        subtabTitle: "Design Justification",
-        subtabLink: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/03_hw_design/01_design_justification",
-        projects: [
-          {
-            title: "LLC Tank Choice",
-            description: "Design and optimization of the LLC resonant tank parameters for efficient power conversion.",
-            image: "imgs/llc_tank.png",
-            pdf: "https://boab235.github.io/pages/llc/pdfs/01_LLC_48v_LLC_tank_design_note_v2.pdf",
-            folder: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/03_hw_design/01_design_justification/01_llc_tank"
-          },
-          {
-            title: "Resonant and Output Capacitor",
-            description: "Selection and design of resonant capacitors and output capacitors for voltage regulation.",
-            image: "",
-            pdf: "https://boab235.github.io/pages/llc/pdfs/03_LLC_48v_LLC_output_capa_v4.pdf",
-            folder: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/03_hw_design/01_design_justification/03_Resonant_and_Output_Capacitor"
-          },
-          {
-            title: "Design of Magnetic Cores Lm and Lr",
-            description: "Magnetic core selection and design for transformer and resonant inductor optimization.",
-            image: "",
-            pdf: "https://boab235.github.io/pages/llc/pdfs/01_LLC_48v_LLC_Magnetic_Cores_V3.pdf",
-            folder: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/03_hw_design/01_design_justification/01_transformer_and_Lr_cores"
-          }, 
-          {
-            title: "New test to BE REMOVED ",
-            description: "Detailed design and construction of the LLC transformer for optimal performance.",
-            image: "",
-            pdf: "https://boab235.github.io/pages/llc/pdfs/02_LLC_48v_LLC_transformer_design_note_v3.pdf",
-            folder: ""
-          }
-        ]
-      }
-      // Add more subtabs here:
-      // {
-      //   subtabTitle: "Schematic",
-      //   subtabLink: "https://github.com/...",
-      //   projects: [...]
-      // }
-    ]
-  },
-  {
-    tabTitle: "Test & Validation",
-    tabLink: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/05_validations",
-    subtabs: [
-      {
-        subtabTitle: "EMI Tests",
-        subtabLink: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/05_validations/02_emc",
-        projects: [
-          {
-            title: "Conducted Emissions Test",
-            description: "EMC testing and validation for conducted emissions compliance with industry standards.",
-            image: "",
-            pdf: "https://boab235.github.io/pages/llc/pdfs/EMC_Conducted_Emissions_Test_V4.pdf",
-            folder: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/05_validations/02_emc/01_Conducted_Emissions_Test"
-          }
-        ]
-      }
-    ]
-  }, 
-
-
-    {
-    tabTitle: "NEW TAB TEST",
-    tabLink: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/05_validations",
-    subtabs: [
-      {
-        subtabTitle: "EMI Tests",
-        subtabLink: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/05_validations/02_emc",
-        projects: [
-          {
-            title: "Conducted Emissions Test",
-            description: "EMC testing and validation for conducted emissions compliance with industry standards.",
-            image: "",
-            pdf: "https://boab235.github.io/pages/llc/pdfs/EMC_Conducted_Emissions_Test_V4.pdf",
-            folder: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/05_validations/02_emc/01_Conducted_Emissions_Test"
-          }
-        ]
-      }, 
-
-      {
-        subtabTitle: "NEW SUBTITLE TEST EMI Tests",
-        subtabLink: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/05_validations/02_emc",
-        projects: [
-          {
-            title: "Conducted Emissions Test",
-            description: "EMC testing and validation for conducted emissions compliance with industry standards.",
-            image: "",
-            pdf: "https://boab235.github.io/pages/llc/pdfs/EMC_Conducted_Emissions_Test_V4.pdf",
-            folder: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/05_validations/02_emc/01_Conducted_Emissions_Test"
-          }
-        ]
-      }
-    ]
-  }
-  // Add more tabs here:
-  // {
-  //   tabTitle: "New Tab",
-  //   tabLink: "https://github.com/...",
-  //   subtabs: [...]
-  // }
-];
-</script>
-<!-- ============================================================================ -->
-<!-- ⚙️ END OF CONFIGURATION - Don't modify anything below this line            -->
-<!-- ============================================================================ -->
-
 <style>
 /* ================= Design Tokens ================ */
 :root {
@@ -340,45 +213,10 @@ body {
 }
 
 /* ================= Project Cards ================= */
-.subtab-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin: 24px 0 16px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid var(--hairline);
-}
-
-.subtab-header h2 {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--accent-700);
-  margin: 0;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.subtab-github-link {
-  color: var(--accent-700);
-  text-decoration: none;
-  font-size: 0.9rem;
-  opacity: 0.6;
-  transition: opacity 0.2s, transform 0.2s;
-  display: inline-flex;
-  align-items: center;
-}
-
-.subtab-github-link:hover {
-  opacity: 1;
-  transform: translateY(-2px);
-}
-
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 24px;
-  margin-bottom: 40px;
 }
 
 .project-card {
@@ -539,7 +377,77 @@ body {
 
 <script>
 // ========================================================================================
-// 🔧 RENDERING LOGIC - DO NOT MODIFY BELOW
+// MAIN CONFIGURATION - EASY TO CUSTOMIZE
+// Update main title, image, description, and link here
+// ========================================================================================
+
+const mainConfig = {
+  title: "1200W 400V/48V LLC DC-DC Converter Design",
+  description: "A comprehensive design and validation project for a high-efficiency LLC resonant DC-DC converter. This project covers hardware design, magnetic components optimization, and EMC testing for industrial power conversion applications.",
+  image: "imgs/main_project.png", // Add your main project image here or leave empty ""
+  mainLink: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC"
+};
+
+// ========================================================================================
+// PROJECT DATA - TABS AND PROJECTS
+// To add new content:
+// 1. Add a new tab object with title and projects array
+// 2. Add projects with title, description, image (optional), pdf, and folder links
+// ========================================================================================
+
+const projectData = [
+  {
+    tabTitle: "Hardware Design",
+    tabLink: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/03_hw_design",
+    projects: [
+      {
+        title: "LLC Tank Choice",
+        description: "Design and optimization of the LLC resonant tank parameters for efficient power conversion.",
+        image: "imgs/llc_tank.png", // Add your image here or leave empty
+        pdf: "https://boab235.github.io/pages/llc/pdfs/01_LLC_48v_LLC_tank_design_note_v2.pdf",
+        folder: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/03_hw_design/01_design_justification/01_llc_tank"
+      },
+      {
+        title: "Resonant and Output Capacitor",
+        description: "Selection and design of resonant capacitors and output capacitors for voltage regulation.",
+        image: "", // Empty for placeholder
+        pdf: "https://boab235.github.io/pages/llc/pdfs/03_LLC_48v_LLC_output_capa_v4.pdf",
+        folder: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/03_hw_design/01_design_justification/03_Resonant_and_Output_Capacitor"
+      },
+      {
+        title: "Design of Magnetic Cores Lm and Lr",
+        description: "Magnetic core selection and design for transformer and resonant inductor optimization.",
+        image: "",
+        pdf: "https://boab235.github.io/pages/llc/pdfs/01_LLC_48v_LLC_Magnetic_Cores_V3.pdf",
+        folder: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/03_hw_design/01_design_justification/01_transformer_and_Lr_cores"
+      }
+    ]
+  },
+  {
+    tabTitle: "Test & Validation",
+    tabLink: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/05_validations",
+    projects: [
+      {
+        title: "Conducted Emissions Test",
+        description: "EMC testing and validation for conducted emissions compliance with industry standards.",
+        image: "",
+        pdf: "https://boab235.github.io/pages/llc/pdfs/EMC_Conducted_Emissions_Test_V4.pdf",
+        folder: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/05_validations/02_emc/01_Conducted_Emissions_Test"
+      }
+    ]
+  }
+  // Add more tabs here as needed:
+  // {
+  //   tabTitle: "New Tab Name",
+  //   tabLink: "https://github.com/your-repo/tree/main/folder",
+  //   projects: [
+  //     { title: "Project 1", description: "...", image: "", pdf: "...", folder: "..." }
+  //   ]
+  // }
+];
+
+// ========================================================================================
+// RENDERING LOGIC - NO NEED TO MODIFY BELOW
 // ========================================================================================
 
 function renderHero() {
@@ -622,101 +530,67 @@ function renderTabs() {
     content.className = 'tab-content' + (index === 0 ? ' active' : '');
     content.id = `tab-${index}`;
     
-    // Render each subtab
-    if (tab.subtabs && tab.subtabs.length > 0) {
-      tab.subtabs.forEach(subtab => {
-        // Subtab header
-        const subtabHeader = document.createElement('div');
-        subtabHeader.className = 'subtab-header';
-        
-        const subtabTitle = document.createElement('h2');
-        subtabTitle.textContent = subtab.subtabTitle;
-        
-        // Add GitHub link for subtab
-        if (subtab.subtabLink) {
-          const subtabLink = document.createElement('a');
-          subtabLink.className = 'subtab-github-link';
-          subtabLink.href = subtab.subtabLink;
-          subtabLink.target = '_blank';
-          subtabLink.innerHTML = '&#x2197;';
-          subtabLink.title = 'Open in GitHub';
-          subtabTitle.appendChild(subtabLink);
-        }
-        
-        subtabHeader.appendChild(subtabTitle);
-        content.appendChild(subtabHeader);
-        
-        // Projects grid for this subtab
-        const grid = document.createElement('div');
-        grid.className = 'projects-grid';
-        
-        subtab.projects.forEach(project => {
-          const card = createProjectCard(project);
-          grid.appendChild(card);
-        });
-        
-        content.appendChild(grid);
-      });
-    }
+    const grid = document.createElement('div');
+    grid.className = 'projects-grid';
     
+    tab.projects.forEach(project => {
+      const card = document.createElement('div');
+      card.className = 'project-card';
+      
+      // Image
+      const imgDiv = document.createElement('div');
+      if (project.image) {
+        imgDiv.className = 'project-image';
+        imgDiv.onclick = () => openModal(project.image);
+        const img = document.createElement('img');
+        img.src = project.image;
+        img.alt = project.title;
+        imgDiv.appendChild(img);
+      } else {
+        imgDiv.className = 'project-image placeholder';
+        imgDiv.textContent = 'No image';
+      }
+      
+      // Title
+      const title = document.createElement('h3');
+      title.textContent = project.title;
+      
+      // Description
+      const desc = document.createElement('p');
+      desc.className = 'project-description';
+      desc.textContent = project.description;
+      
+      // Links
+      const links = document.createElement('div');
+      links.className = 'project-links';
+      
+      if (project.pdf) {
+        const pdfLink = document.createElement('a');
+        pdfLink.href = project.pdf;
+        pdfLink.textContent = 'PDF';
+        pdfLink.target = '_blank';
+        links.appendChild(pdfLink);
+      }
+      
+      if (project.folder) {
+        const folderLink = document.createElement('a');
+        folderLink.href = project.folder;
+        folderLink.textContent = 'Folder';
+        folderLink.className = 'secondary';
+        folderLink.target = '_blank';
+        links.appendChild(folderLink);
+      }
+      
+      card.appendChild(imgDiv);
+      card.appendChild(title);
+      card.appendChild(desc);
+      card.appendChild(links);
+      grid.appendChild(card);
+    });
+    
+    content.appendChild(grid);
     tabContent.appendChild(content);
   });
-}
-
-function createProjectCard(project) {
-  const card = document.createElement('div');
-  card.className = 'project-card';
-  
-  // Image
-  const imgDiv = document.createElement('div');
-  if (project.image) {
-    imgDiv.className = 'project-image';
-    imgDiv.onclick = () => openModal(project.image);
-    const img = document.createElement('img');
-    img.src = project.image;
-    img.alt = project.title;
-    imgDiv.appendChild(img);
-  } else {
-    imgDiv.className = 'project-image placeholder';
-    imgDiv.textContent = 'No image';
-  }
-  
-  // Title
-  const title = document.createElement('h3');
-  title.textContent = project.title;
-  
-  // Description
-  const desc = document.createElement('p');
-  desc.className = 'project-description';
-  desc.textContent = project.description;
-  
-  // Links
-  const links = document.createElement('div');
-  links.className = 'project-links';
-  
-  if (project.pdf) {
-    const pdfLink = document.createElement('a');
-    pdfLink.href = project.pdf;
-    pdfLink.textContent = 'PDF';
-    pdfLink.target = '_blank';
-    links.appendChild(pdfLink);
-  }
-  
-  if (project.folder) {
-    const folderLink = document.createElement('a');
-    folderLink.href = project.folder;
-    folderLink.textContent = 'Folder';
-    folderLink.className = 'secondary';
-    folderLink.target = '_blank';
-    links.appendChild(folderLink);
-  }
-  
-  card.appendChild(imgDiv);
-  card.appendChild(title);
-  card.appendChild(desc);
-  card.appendChild(links);
-  
-  return card;
 }
 
 function switchTab(index) {
@@ -749,7 +623,7 @@ document.getElementById('imageModal').onclick = function(e) {
   }
 };
 
-// Initialize page on load
+// Initialize on page load
 renderHero();
 renderTabs();
 </script>

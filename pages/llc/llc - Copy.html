@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1200W 400V/48V LLC DC-DC Converter Design</title>
+<style>
+/* ================= Design Tokens ================ */
+:root {
+  --bg:        #f6f7fb;
+  --text:      #1f2328;
+  --muted:     #6b7280;
+  --hairline:  #e5e7eb;
+  --accent:    #2563eb;
+  --accent-700:#1d4ed8;
+  --card-bg:   #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:       #0f172a;
+    --text:     #e5e7eb;
+    --muted:    #94a3b8;
+    --hairline: #243044;
+    --accent:   #60a5fa;
+    --accent-700:#93c5fd;
+    --card-bg:  #1e293b;
+  }
+}
+
+/* ================= Base ================= */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* ================= Header ================= */
+.header {
+  text-align: center;
+  padding: 32px 0 16px;
+  border-bottom: 2px solid var(--hairline);
+  margin-bottom: 24px;
+}
+
+.header h1 {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 700;
+  margin: 0 0 12px;
+  color: var(--text);
+}
+
+.header .main-link {
+  display: inline-block;
+  color: var(--accent-700);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: color 0.2s;
+}
+
+.header .main-link:hover {
+  color: var(--accent);
+}
+
+.header .main-link::after {
+  content: " →";
+}
+
+/* ================= Tab Navigation ================= */
+.tabs {
+  display: flex;
+  gap: 8px;
+  border-bottom: 2px solid var(--hairline);
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.tab-btn {
+  background: none;
+  border: none;
+  padding: 12px 24px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--muted);
+  border-bottom: 3px solid transparent;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.tab-btn:hover {
+  color: var(--accent-700);
+}
+
+.tab-btn.active {
+  color: var(--accent-700);
+  border-bottom-color: var(--accent-700);
+}
+
+/* ================= Tab Content ================= */
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+  animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ================= Project Cards ================= */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.project-card {
+  background: var(--card-bg);
+  border: 1px solid var(--hairline);
+  border-radius: 8px;
+  padding: 20px;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.project-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transform: translateY(-2px);
+}
+
+.project-card h3 {
+  margin: 0 0 12px;
+  font-size: 1.15rem;
+  font-weight: 650;
+  color: var(--text);
+}
+
+.project-image {
+  width: 100%;
+  height: 180px;
+  background: var(--hairline);
+  border-radius: 6px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.project-image:hover img {
+  transform: scale(1.05);
+}
+
+.project-image.placeholder {
+  background: linear-gradient(135deg, var(--hairline) 0%, var(--bg) 100%);
+  font-size: 0.85rem;
+  color: var(--muted);
+  cursor: default;
+}
+
+.project-description {
+  font-size: 0.92rem;
+  color: var(--muted);
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.project-links {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.project-links a {
+  display: inline-block;
+  padding: 6px 14px;
+  background: var(--accent);
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.project-links a:hover {
+  background: var(--accent-700);
+}
+
+.project-links a.secondary {
+  background: var(--hairline);
+  color: var(--text);
+}
+
+.project-links a.secondary:hover {
+  background: var(--muted);
+  color: white;
+}
+
+/* ================= Image Modal/Zoom ================= */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  align-items: center;
+  justify-content: center;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-content {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  animation: zoomIn 0.3s;
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.modal-close {
+  position: absolute;
+  top: 24px;
+  right: 32px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+  font-weight: 300;
+  transition: color 0.2s;
+}
+
+.modal-close:hover {
+  color: var(--accent);
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Header -->
+  <div class="header">
+    <h1>1200W 400V/48V LLC DC-DC Converter Design</h1>
+    <a class="main-link" href="https://github.com/BOAB235/Design_of_1200W_LLC_DCDC">Open the main folder</a>
+  </div>
+
+  <!-- Tab Navigation -->
+  <div class="tabs" id="tabNav"></div>
+
+  <!-- Tab Content -->
+  <div id="tabContent"></div>
+
+  <!-- Image Zoom Modal -->
+  <div class="modal" id="imageModal">
+    <span class="modal-close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modalImage">
+  </div>
+</div>
+
+<script>
+// ========================================================================================
+// DATA STRUCTURE - EASY TO EXTEND
+// To add new content:
+// 1. Add a new tab object with title and projects array
+// 2. Add projects with title, description, image (optional), pdf, and folder links
+// ========================================================================================
+
+const projectData = [
+  {
+    tabTitle: "Hardware Design",
+    projects: [
+      {
+        title: "LLC Tank Choice",
+        description: "Design and optimization of the LLC resonant tank parameters for efficient power conversion.",
+        image: "imgs/llc_tank.png", // Add your image here or leave empty
+        pdf: "https://boab235.github.io/pages/llc/pdfs/01_LLC_48v_LLC_tank_design_note_v2.pdf",
+        folder: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/03_hw_design/01_design_justification/01_llc_tank"
+      },
+      {
+        title: "Resonant and Output Capacitor",
+        description: "Selection and design of resonant capacitors and output capacitors for voltage regulation.",
+        image: "", // Empty for placeholder
+        pdf: "https://boab235.github.io/pages/llc/pdfs/03_LLC_48v_LLC_output_capa_v4.pdf",
+        folder: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/03_hw_design/01_design_justification/03_Resonant_and_Output_Capacitor"
+      },
+      {
+        title: "Design of Magnetic Cores Lm and Lr",
+        description: "Magnetic core selection and design for transformer and resonant inductor optimization.",
+        image: "",
+        pdf: "https://boab235.github.io/pages/llc/pdfs/01_LLC_48v_LLC_Magnetic_Cores_V3.pdf",
+        folder: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/03_hw_design/01_design_justification/01_transformer_and_Lr_cores"
+      }
+    ]
+  },
+  {
+    tabTitle: "Test & Validation",
+    projects: [
+      {
+        title: "Conducted Emissions Test",
+        description: "EMC testing and validation for conducted emissions compliance with industry standards.",
+        image: "",
+        pdf: "https://boab235.github.io/pages/llc/pdfs/EMC_Conducted_Emissions_Test_V4.pdf",
+        folder: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/05_validations/02_emc/01_Conducted_Emissions_Test"
+      }
+    ]
+  }
+  // Add more tabs here as needed:
+  // {
+  //   tabTitle: "New Tab Name",
+  //   projects: [
+  //     { title: "Project 1", description: "...", image: "", pdf: "...", folder: "..." }
+  //   ]
+  // }
+];
+
+// ========================================================================================
+// RENDERING LOGIC - NO NEED TO MODIFY BELOW
+// ========================================================================================
+
+function renderTabs() {
+  const tabNav = document.getElementById('tabNav');
+  const tabContent = document.getElementById('tabContent');
+  
+  projectData.forEach((tab, index) => {
+    // Create tab button
+    const btn = document.createElement('button');
+    btn.className = 'tab-btn' + (index === 0 ? ' active' : '');
+    btn.textContent = tab.tabTitle;
+    btn.onclick = () => switchTab(index);
+    tabNav.appendChild(btn);
+    
+    // Create tab content
+    const content = document.createElement('div');
+    content.className = 'tab-content' + (index === 0 ? ' active' : '');
+    content.id = `tab-${index}`;
+    
+    const grid = document.createElement('div');
+    grid.className = 'projects-grid';
+    
+    tab.projects.forEach(project => {
+      const card = document.createElement('div');
+      card.className = 'project-card';
+      
+      // Image
+      const imgDiv = document.createElement('div');
+      if (project.image) {
+        imgDiv.className = 'project-image';
+        imgDiv.onclick = () => openModal(project.image);
+        const img = document.createElement('img');
+        img.src = project.image;
+        img.alt = project.title;
+        imgDiv.appendChild(img);
+      } else {
+        imgDiv.className = 'project-image placeholder';
+        imgDiv.textContent = 'No image';
+      }
+      
+      // Title
+      const title = document.createElement('h3');
+      title.textContent = project.title;
+      
+      // Description
+      const desc = document.createElement('p');
+      desc.className = 'project-description';
+      desc.textContent = project.description;
+      
+      // Links
+      const links = document.createElement('div');
+      links.className = 'project-links';
+      
+      if (project.pdf) {
+        const pdfLink = document.createElement('a');
+        pdfLink.href = project.pdf;
+        pdfLink.textContent = 'PDF';
+        pdfLink.target = '_blank';
+        links.appendChild(pdfLink);
+      }
+      
+      if (project.folder) {
+        const folderLink = document.createElement('a');
+        folderLink.href = project.folder;
+        folderLink.textContent = 'Folder';
+        folderLink.className = 'secondary';
+        folderLink.target = '_blank';
+        links.appendChild(folderLink);
+      }
+      
+      card.appendChild(imgDiv);
+      card.appendChild(title);
+      card.appendChild(desc);
+      card.appendChild(links);
+      grid.appendChild(card);
+    });
+    
+    content.appendChild(grid);
+    tabContent.appendChild(content);
+  });
+}
+
+function switchTab(index) {
+  // Update buttons
+  document.querySelectorAll('.tab-btn').forEach((btn, i) => {
+    btn.classList.toggle('active', i === index);
+  });
+  
+  // Update content
+  document.querySelectorAll('.tab-content').forEach((content, i) => {
+    content.classList.toggle('active', i === index);
+  });
+}
+
+function openModal(imageSrc) {
+  const modal = document.getElementById('imageModal');
+  const modalImg = document.getElementById('modalImage');
+  modal.classList.add('active');
+  modalImg.src = imageSrc;
+}
+
+function closeModal() {
+  document.getElementById('imageModal').classList.remove('active');
+}
+
+// Close modal on click outside
+document.getElementById('imageModal').onclick = function(e) {
+  if (e.target === this) {
+    closeModal();
+  }
+};
+
+// Initialize on page load
+renderTabs();
+</script>
+
+</body>
+</html>
