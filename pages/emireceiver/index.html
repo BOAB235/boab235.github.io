@@ -1098,7 +1098,11 @@ function tick() { return new Promise(r => setTimeout(r,10)); }
 /* ------------------------------------------------------------------ *
  * 16.  AUTO-RUN on page load                                          *
  * ------------------------------------------------------------------ */
-window.addEventListener('load', () => runGenerated());
+/*window.addEventListener('load', () => runGenerated());*/
+window.addEventListener('load', async () => {
+  await runGenerated();
+  await runHeatmap();
+});
 </script>
 
 
