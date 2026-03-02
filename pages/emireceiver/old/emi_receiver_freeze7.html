@@ -235,94 +235,6 @@
       margin-bottom: 14px;
       letter-spacing: 0.2px;
     }
-
-    /* ── Oscillo Calc Tab ── */
-    .osc-row {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 5px 2px;
-      font-size: 0.82rem;
-      flex-wrap: wrap;
-    }
-    .osc-row label {
-      min-width: 240px;
-      color: #455a64;
-      font-weight: 500;
-    }
-    .osc-row input[type=number] {
-      width: 80px;
-      border: 1px solid #b0bec5;
-      border-radius: 4px;
-      padding: 4px 8px;
-      font-size: 0.84rem;
-      background: #fafafa;
-    }
-    .osc-row input[type=number]:focus { outline: none; border-color: #1565c0; background: #fff; }
-    .osc-row select {
-      border: 1px solid #b0bec5;
-      border-radius: 4px;
-      padding: 4px 8px;
-      font-size: 0.84rem;
-      background: #fafafa;
-      color: #222;
-    }
-    .osc-row select:focus { outline: none; border-color: #1565c0; background: #fff; }
-    .osc-section-label {
-      font-size: 0.78rem;
-      font-weight: 700;
-      color: #1565c0;
-      text-transform: uppercase;
-      letter-spacing: 0.4px;
-      padding: 8px 2px 4px;
-      border-top: 1px solid #e3eaf3;
-      margin-top: 6px;
-    }
-    .osc-res {
-      font-weight: 700;
-      color: #2e7d32;
-      font-family: 'Consolas', 'Courier New', monospace;
-      font-size: 0.88rem;
-    }
-    .osc-formula-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.82rem;
-    }
-    .osc-formula-table th {
-      background: #e8eef7;
-      color: #1565c0;
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.4px;
-      padding: 5px 10px;
-      text-align: left;
-      border-bottom: 2px solid #c5d3e8;
-    }
-    .osc-formula-table td {
-      padding: 5px 10px;
-      border-bottom: 1px solid #eef1f5;
-      color: #37474f;
-      vertical-align: middle;
-    }
-    .osc-formula-table tr:last-child td { border-bottom: none; }
-    .osc-formula-table td.fm {
-      font-family: 'Consolas', 'Courier New', monospace;
-      color: #1a237e;
-      font-size: 0.84rem;
-    }
-    .osc-formula-detail {
-      font-family: 'Consolas', 'Courier New', monospace;
-      font-size: 0.77rem;
-      color: #455a64;
-      background: #f0f4ff;
-      border-left: 3px solid #7986cb;
-      border-radius: 0 4px 4px 0;
-      padding: 6px 10px;
-      margin-top: 6px;
-      line-height: 1.7;
-      white-space: pre-wrap;
-    }
   </style>
 </head>
 <body>
@@ -334,7 +246,6 @@
 <div class="tab-bar">
   <button class="tab-btn active" onclick="switchTab('tab-gen',this)">⚙ Generated Signal</button>
   <button class="tab-btn"        onclick="switchTab('tab-file',this)">📂 Load File</button>
-  <button class="tab-btn"        onclick="switchTab('tab-oscillo',this)">📰 Oscillo Calculator</button>
 </div>
 
 <!-- ─────────────────── TAB 1 : Generated Signal ─────────────────── -->
@@ -424,117 +335,6 @@
   <div id="progress-wrap">
     <div id="progress-bar-outer"><div id="progress-bar-inner"></div></div>
     <div id="progress-label">Parsing file…</div>
-  </div>
-</div>
-
-<!-- ─────────────────── TAB 3 : Oscillo Calc ───────────────────────── -->
-<div id="tab-oscillo" class="tab-content">
-  <br/>
-  <div class="card">
-    <h2>RF Oscilloscope Analyzer</h2>
-
-    <div class="osc-row">
-      <label>ADC Vertical Resolution</label>
-      <input id="osc-nbits" value="9" type="number">
-      <span style="font-size:0.8em;color:#546e7a;">Bits</span>
-    </div>
-
-    <div class="osc-row">
-      <label>Vertical Scale (V/div)</label>
-      <input id="osc-vdiv" value="0.2" type="number">
-      <select id="osc-v_u"><option value="1">V</option><option value="0.001">mV</option></select>
-    </div>
-
-    <div class="osc-row">
-      <label>Timebase (Time/div)</label>
-      <input id="osc-tdiv" value="20" type="number">
-      <select id="osc-t_u"><option value="1">s</option><option value="1e-3">ms</option><option value="1e-6" selected>µs</option><option value="1e-9">ns</option></select>
-    </div>
-
-    <div class="osc-row">
-      <label>Memory Depth (Points)</label>
-      <input id="osc-npts" value="100" type="number">
-      <select id="osc-n_u"><option value="1">pts</option><option value="1e3" selected>k pts</option><option value="1e6">M pts</option></select>
-    </div>
-
-    <div class="osc-row">
-      <label>Resolution Bandwidth (RBW)</label>
-      <input id="osc-rbw" value="9" type="number">
-      <select id="osc-rbw_u"><option value="1">Hz</option><option value="1e3" selected>kHz</option><option value="1e6">MHz</option></select>
-    </div>
-
-    <div class="osc-section-label">Calculated System Performance</div>
-    <div class="osc-row"><label>Full Vertical Range (V_pp):</label> <span class="osc-res" id="osc-out_vfs"></span></div>
-    <div class="osc-row"><label>Horizontal Capture Time (T_cap):</label> <span class="osc-res" id="osc-out_tcap"></span></div>
-    <div class="osc-row"><label>Effective Sample Rate (f_s):</label> <span class="osc-res" id="osc-out_fs"></span></div>
-    <div class="osc-row"><label>Effective Sample Rate (t_s):</label> <span class="osc-res" id="osc-out_ts"></span></div>
-
-    <div class="osc-section-label">Sensitivity &amp; Noise Floor</div>
-    <div class="osc-row"><label>Max Input Level (to Clipping):</label> <span class="osc-res" id="osc-out_max"></span> dBµV</div>
-    <div class="osc-row"><label>Quantization Noise (LSB):</label> <span class="osc-res" id="osc-out_lsb"></span> dBµV</div>
-    <div class="osc-row"><label>FFT Sensitivity (DANL Floor):</label> <span class="osc-res" id="osc-out_danl"></span> dBµV</div>
-  </div>
-
-  <div class="card">
-    <h2>Formulas</h2>
-    <table class="osc-formula-table">
-      <thead>
-        <tr><th>Output</th><th>Formula</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>V<sub>pp</sub> — Full Vertical Range</td>
-          <td class="fm">V<sub>pp</sub> = V/div &times; 10</td>
-        </tr>
-        <tr>
-          <td>T<sub>cap</sub> — Horizontal Capture Time</td>
-          <td class="fm">T<sub>cap</sub> = T/div &times; 10</td>
-        </tr>
-        <tr>
-          <td>f<sub>s</sub> — Effective Sample Rate</td>
-          <td class="fm">f<sub>s</sub> = N<sub>pts</sub> / T<sub>cap</sub></td>
-        </tr>
-        <tr>
-          <td>t<sub>s</sub> — Sample Period</td>
-          <td class="fm">t<sub>s</sub> = 1 / f<sub>s</sub></td>
-        </tr>
-        <tr>
-          <td>LSB — Quantization Step</td>
-          <td class="fm">LSB = V<sub>pp</sub> / 2<sup>N<sub>bits</sub></sup></td>
-        </tr>
-        <tr>
-          <td>Max Input Level</td>
-          <td class="fm">20 &middot; log<sub>10</sub>( (V<sub>pp</sub>/2) &times; 10<sup>6</sup> ) &nbsp;[dBµV]</td>
-        </tr>
-        <tr>
-          <td>Quantization Noise (LSB)</td>
-          <td class="fm">20 &middot; log<sub>10</sub>( LSB &times; 10<sup>6</sup> ) &nbsp;[dBµV]</td>
-        </tr>
-        <tr>
-          <td colspan="2" style="padding-top:6px;font-weight:700;color:#1565c0;font-size:0.8rem;">DANL — FFT Sensitivity (Gaussian window processing gain)</td>
-        </tr>
-        <tr>
-          <td>&sigma;<sub>f</sub> — Gaussian freq. sigma</td>
-          <td class="fm">&sigma;<sub>f</sub> = RBW / 2&radic;(2&middot;ln 2)</td>
-        </tr>
-        <tr>
-          <td>T<sub>win</sub> — Window length</td>
-          <td class="fm">T<sub>win</sub> = 6 / (2&pi; &middot; &sigma;<sub>f</sub>)</td>
-        </tr>
-        <tr>
-          <td>N<sub>seg</sub> — FFT window points</td>
-          <td class="fm">N<sub>seg</sub> = floor( T<sub>win</sub> &times; f<sub>s</sub> )</td>
-        </tr>
-        <tr>
-          <td>DANL<sub>V</sub> — Noise floor voltage</td>
-          <td class="fm">DANL<sub>V</sub> = LSB / &radic;N<sub>seg</sub></td>
-        </tr>
-        <tr>
-          <td>DANL [dBµV]</td>
-          <td class="fm">20 &middot; log<sub>10</sub>( DANL<sub>V</sub> &times; 10<sup>6</sup> )</td>
-        </tr>
-      </tbody>
-    </table>
   </div>
 </div>
 
@@ -1305,56 +1105,6 @@ window.addEventListener('load', async () => {
 });
 </script>
 
-
-<script>
-'use strict';
-/* ── Oscillo Calc (port of oscillo_calculation.html) ── */
-(function () {
-  function oscUi(id) { return parseFloat(document.getElementById(id).value); }
-
-  function oscFmt(v, unit) {
-    const absV = Math.abs(v);
-    if (absV >= 1e6) return (v / 1e6).toFixed(2) + ' M' + unit;
-    if (absV >= 1e3) return (v / 1e3).toFixed(2) + ' k' + unit;
-    if (absV < 1e-6) return (v * 1e9).toFixed(2) + ' n' + unit;
-    if (absV < 1e-3) return (v * 1e6).toFixed(2) + ' µ' + unit;
-    if (absV < 1)    return (v * 1e3).toFixed(2) + ' m' + unit;
-    return v.toFixed(3) + ' ' + unit;
-  }
-
-  function oscCalc() {
-    const vd = oscUi('osc-vdiv')  * oscUi('osc-v_u');
-    const td = oscUi('osc-tdiv')  * oscUi('osc-t_u');
-    const np = oscUi('osc-npts')  * oscUi('osc-n_u');
-    const rb = oscUi('osc-rbw')   * oscUi('osc-rbw_u');
-    const nb = oscUi('osc-nbits');
-
-    const vRange = vd * 10;
-    const tCap   = td * 10;
-    const lsb    = vRange / Math.pow(2, nb);
-    const fs     = 1 / (tCap / np);
-
-    const sigmaF   = rb / 2.355;
-    const winLenSec = 6 / (2 * Math.PI * sigmaF);
-    const nperseg  = Math.floor(winLenSec * fs);
-    const danl_v   = lsb / Math.sqrt(nperseg || 1);
-
-    document.getElementById('osc-out_vfs').innerText  = oscFmt(vRange, 'V');
-    document.getElementById('osc-out_tcap').innerText = oscFmt(tCap, 's');
-    document.getElementById('osc-out_fs').innerText   = oscFmt(fs, 'Hz');
-    document.getElementById('osc-out_ts').innerText   = oscFmt(1 / fs, 's');
-    document.getElementById('osc-out_max').innerText  = (20 * Math.log10(1e6 * vRange / 2)).toFixed(1);
-    document.getElementById('osc-out_lsb').innerText  = (20 * Math.log10(1e6 * lsb)).toFixed(1);
-    document.getElementById('osc-out_danl').innerText = (20 * Math.log10(1e6 * danl_v)).toFixed(1);
-  }
-
-  document.querySelectorAll(
-    '#osc-nbits,#osc-vdiv,#osc-v_u,#osc-tdiv,#osc-t_u,#osc-npts,#osc-n_u,#osc-rbw,#osc-rbw_u'
-  ).forEach(el => el.oninput = oscCalc);
-
-  window.addEventListener('load', oscCalc);
-})();
-</script>
 
 <div style="text-align:center;margin-top:18px;margin-bottom:8px;font-size:0.78rem;color:#90a4ae;">
   For more information see <a href="https://pypi.org/project/emi-receiver" target="_blank">emi-receiver</a><br>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scope RF Pro</title>
+
+</head>
+<body>
+
+<div class="card">
+    <h3>RF OSCILLOSCOPE ANALYZER</h3>
+    
+    <div class="row">ADC Vertical Resolution <input id="nbits" value="9" type="number"> <span style="font-size: 0.8em;">Bits</span></div>
+
+    <div class="row">Vertical Scale (V/div) 
+        <div><input id="vdiv" value="0.2"> <select id="v_u"><option value="1">V</option><option value="0.001">mV</option></select></div>
+    </div>
+
+    <div class="row">Timebase (Time/div) 
+        <div><input id="tdiv" value="20"> <select id="t_u"><option value="1">s</option><option value="1e-3">ms</option><option value="1e-6" selected>µs</option><option value="1e-9">ns</option></select></div>
+    </div>
+
+    <div class="row">Memory Depth (Points) 
+        <div><input id="npts" value="100"> <select id="n_u"><option value="1">pts</option><option value="1e3" selected>k pts</option><option value="1e6">M pts</option></select></div>
+    </div>
+
+    <div class="row">Resolution Bandwidth (RBW) 
+        <div><input id="rbw" value="9"> <select id="rbw_u"><option value="1">Hz</option><option value="1e3" selected>kHz</option><option value="1e6">MHz</option></select></div>
+    </div>
+
+    <div class="section-label">Calculated System Performance</div>
+    <div class="row">Full Vertical Range (V_pp): <span class="res" id="out_vfs"></span></div>
+    <div class="row">Horizontal Capture Time (T_cap): <span class="res" id="out_tcap"></span></div>
+    <div class="row">Effective Sample Rate (f_s): <span class="res" id="out_fs"></span></div>
+<div class="row">Effective Sample Rate (t_s): <span class="res" id="out_ts"></span></div>
+    
+    <div class="section-label">Sensitivity & Noise Floor</div>
+    <div class="row">Max Input Level (to Clipping): <span class="res" id="out_max"></span> dBµV</div>
+    <div class="row">Quantization Noise (LSB): <span class="res" id="out_lsb"></span> dBµV</div>
+    <div class="row">FFT Sensitivity (DANL Floor): <span class="res" id="out_danl"></span> dBµV</div>
+</div>
+
+<script>
+const ui = (id) => parseFloat(document.getElementById(id).value);
+
+function fmt(v, unit) {
+    let absV = Math.abs(v);
+    if (absV >= 1e6) return (v/1e6).toFixed(2) + " M" + unit;
+    if (absV >= 1e3) return (v/1e3).toFixed(2) + " k" + unit;
+    if (absV < 1e-6) return (v*1e9).toFixed(2) + " n" + unit;
+    if (absV < 1e-3) return (v*1e6).toFixed(2) + " µ" + unit;
+    if (absV < 1) return (v*1e3).toFixed(2) + " m" + unit;
+    return v.toFixed(3) + " " + unit;
+}
+
+function calc() {
+    const vd = ui('vdiv') * ui('v_u');
+    const td = ui('tdiv') * ui('t_u');
+    const np = ui('npts') * ui('n_u');
+    const rb = ui('rbw') * ui('rbw_u');
+    const nb = ui('nbits');
+
+    const vRange = vd * 10;
+    const tCap = td * 10; // Full horizontal range
+    const lsb = vRange / Math.pow(2, nb);
+    const fs = 1 / (tCap / np);
+    
+    // Processing Gain Logic (Gaussian Window)
+    // The ratio of noise power in RBW vs total Nyquist bandwidth
+    const sigmaF = rb / 2.355;
+    const winLenSec = 6 / (2 * Math.PI * sigmaF);
+    const nperseg = Math.floor(winLenSec * fs);
+    const danl_v = lsb / Math.sqrt(nperseg || 1);
+
+    document.getElementById('out_vfs').innerText = fmt(vRange, "V");
+    document.getElementById('out_tcap').innerText = fmt(tCap, "s");
+    document.getElementById('out_fs').innerText = fmt(fs, "Hz");
+document.getElementById('out_ts').innerText = fmt(1/fs, "s");
+    document.getElementById('out_max').innerText = (20 * Math.log10(1e6 * vRange/2)).toFixed(1);
+    document.getElementById('out_lsb').innerText = (20 * Math.log10(1e6 * lsb)).toFixed(1);
+    document.getElementById('out_danl').innerText = (20 * Math.log10(1e6 * danl_v)).toFixed(1);
+}
+
+document.querySelectorAll('input, select').forEach(el => el.oninput = calc);
+calc();
+</script>
+</body>
+</html>
