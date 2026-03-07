@@ -70,7 +70,7 @@ const projectData = [
             title: "Modified schematic (Final version)",
             description: "TBD",
             image: "pdfs/LLC_DCDC_V5_Modifications.png",
-            pdf: "pdfs/TBD.pdf",
+            pdf: "pdfs/LLC_DCDC_V5_Modifications.pdf",
             folder: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/03_hw_design/02_schematic_and_bom/01_Schematics_BOM/LLC_DCDC_V5_Modifications"
           }
         ]
