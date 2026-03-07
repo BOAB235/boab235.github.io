@@ -217,7 +217,8 @@ const projectData = [
 'imgs//gal//f2//img_47.jpg',
 'imgs//gal//f2//img_48.jpg',
 'imgs//gal//f2//img_49.jpg',
-'imgs//gal//f2//img_50.jpg']
+'imgs//gal//f2//img_50.jpg', 
+'imgs//gal//f2//img_51.jpg']
       }, 
 
       {
