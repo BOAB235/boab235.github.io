@@ -5,7 +5,161 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>1200W 400V/48V LLC DC-DC Converter Design</title>
 
-<script src="data.js"></script>
+<!-- ============================================================================ -->
+<!-- ⚙️ EDIT YOUR DATA HERE - This is the ONLY section you need to modify       -->
+<!-- ============================================================================ -->
+<script>
+// Main page configuration
+const mainConfig = {
+  title: "1200W 400V/48V LLC DC-DC Converter Design",
+  description: "This work presents an open-source design and experimental evaluation of an LLC resonant DC-DC converter. The project includes hardware development based on planar magnetic components, firmware implementation on an STM32 microcontroller, and comprehensive converter testing. It serves as an effective introductory platform for understanding the practical and industrial challenges associated with power electronics design.",
+  image: "imgs/dcdc_all2.png",  // Add your main image path here or leave empty ""
+  mainLink: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC"
+};
+
+// Project data - tabs, subtabs, and projects
+const projectData = [
+  {
+    tabTitle: "Hardware Design",
+    tabLink: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/03_hw_design",
+    subtabs: [
+      {
+        subtabTitle: "Design Justification",
+        subtabLink: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/03_hw_design/01_design_justification",
+        projects: [
+          {
+            title: "LLC Tank Choice",
+            description: "Design and optimization of the LLC resonant tank parameters.",
+            image: "pdfs/01_LLC_48v_LLC_tank_design_note_v2.png",
+            pdf: "pdfs/01_LLC_48v_LLC_tank_design_note_v2.pdf",
+            folder: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/03_hw_design/01_design_justification/01_llc_tank"
+          },
+          {
+            title: "Resonant and Output Capacitor",
+            description: "Selection and design of resonant capacitors and output capacitors.",
+            image: "pdfs/03_LLC_48v_LLC_output_capa_v4.png",
+            pdf: "pdfs/03_LLC_48v_LLC_output_capa_v4.pdf",
+            folder: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/03_hw_design/01_design_justification/03_Resonant_and_Output_Capacitor"
+          },
+          {
+            title: "Design of Magnetic Cores Lm and Lr",
+            description: "Magnetic core selection and design for transformer and resonant inductor optimization.",
+            image: "pdfs/01_LLC_48v_LLC_Magnetic_Cores_V3.png",
+            pdf: "pdfs/01_LLC_48v_LLC_Magnetic_Cores_V3.pdf",
+            folder: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/03_hw_design/01_design_justification/01_transformer_and_Lr_cores"
+          }
+        ]
+      },
+      {
+        subtabTitle: "Schematic and BOM",
+        subtabLink: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/03_hw_design/02_schematic_and_bom",
+        projects: [
+          {
+            title: "Schematic used to make the PCB",
+            description: "The frizzing schematic used to make the PCB. Open the folder to found pcb layout, the KiCad project and the BOM...",
+            image: "pdfs/LLC_DCDC_V5.png",
+            pdf: "pdfs/LLC_DCDC_V5.pdf",
+            folder: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/03_hw_design/02_schematic_and_bom/01_Schematics_BOM/LLC_DCDC_V5"
+          }, 
+
+          {
+            title: "Gerber and layout (used to make the PCB)",
+            description: "Exported gerber files as pdf used for PCB fabrication. Open the folder to found the gerber files",
+            image: "pdfs/LLC_DCDC_V5_Gerber_and_layout.png",
+            pdf: "pdfs/LLC_DCDC_V5_Gerber_and_layout.pdf",
+            folder: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/03_hw_design/02_schematic_and_bom/01_Schematics_BOM/LLC_DCDC_V5/gerber-pdf"
+          }, 
+          
+          {
+            title: "Bill of Materials (BOM)",
+            description: "Exported BOM as pdf used for PCB fabrication. Open the folder to found the BOM files",
+            image: "pdfs/LLC_DCDC_V5_BOM.png",
+            pdf: "pdfs/LLC_DCDC_V5_BOM.pdf",
+            folder: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/03_hw_design/02_schematic_and_bom/01_Schematics_BOM"
+          }, 
+          , 
+          {
+            title: "Modified schematic (Final version)",
+            description: "TBD",
+            image: "pdfs/LLC_DCDC_V5_Modifications.png",
+            pdf: "pdfs/TBD.pdf",
+            folder: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/03_hw_design/02_schematic_and_bom/01_Schematics_BOM/LLC_DCDC_V5_Modifications"
+          }
+        ]
+      }
+      // Add more subtabs here:
+      // {
+      //   subtabTitle: "Schematic",
+      //   subtabLink: "https://github.com/...",
+      //   projects: [...]
+      // }
+    ]
+  },
+  {
+    tabTitle: "Test & Validation",
+    tabLink: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/05_validations",
+    subtabs: [
+      {
+        subtabTitle: "Asseembly Tests",
+        subtabLink: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/05_validations",
+        projects: [
+          {
+            title: "EMI: Conducted Emissions Test",
+            description: "EMC testing and validation for conducted emissions",
+            image: "pdfs/EMC_Conducted_Emissions_Test_V4.png",
+            pdf: "pdfs/EMC_Conducted_Emissions_Test_V4.pdf",
+            folder: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/05_validations/02_emc/01_Conducted_Emissions_Test"
+          }, 
+
+          {
+            title: "LLC Efficiency Test",
+            description: "Efficiency testing and validation for the LLC converter",
+            image: "pdfs/LLC_1200W_Efficiency_test.jpg",
+            pdf: "pdfs/LLC_1200W_Efficiency_test.pdf",
+            folder: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/05_validations/09_LLC_Efficiency"
+          }, 
+
+          {
+            title: "LLC, Safety tests",
+            description: "Safety testing and validation for the LLC converter: Capacitor discharge test and insulation test",
+            image: "pdfs/LLC_Safety_tests_V0.png",
+            pdf: "pdfs/LLC_Safety_tests_V0.pdf",
+            folder: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/05_validations/03_safety"
+          }
+        ]
+      }
+      , 
+      {
+        subtabTitle: "Subsystem-Level Tests",
+        subtabLink: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/05_validations",
+        projects: [
+          {
+            title: "Gain, Lr and Lm characterization",
+            description: "Characterization of the LLC tank parameters (Gain, Lr and Lm) using 4 methods",
+            image: "pdfs/Gain_and_tank_characterization_V0.png",
+            pdf: "pdfs/Gain_and_tank_characterization_V0.pdf",
+            folder: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/05_validations/05_Gain_and_LLC_Tank_charac"
+            
+          }
+        ]
+      }
+
+    ]
+  }, 
+
+
+
+  // Add more tabs here:
+  // {
+  //   tabTitle: "New Tab",
+  //   tabLink: "https://github.com/...",
+  //   subtabs: [...]
+  // }
+];
+</script>
+<!-- ============================================================================ -->
+<!-- ⚙️ END OF CONFIGURATION - Don't modify anything below this line            -->
+<!-- ============================================================================ -->
 
 <style>
 /* ================= Design Tokens ================ */
@@ -350,44 +504,6 @@ body {
   color: white;
 }
 
-/* ================= Gallery Image Cards ================= */
-.image-only-card {
-  padding: 0;
-  overflow: hidden;
-  aspect-ratio: 1;
-}
-
-.gallery-image {
-  height: 100%;
-  margin: 0;
-  border-radius: 8px;
-  position: relative;
-}
-
-.gallery-image img {
-  border-radius: 8px;
-}
-
-.image-title-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: linear-gradient(transparent, rgba(0,0,0,0.7));
-  color: white;
-  padding: 12px 8px 8px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  text-align: center;
-  opacity: 0;
-  transition: opacity 0.3s;
-  border-radius: 0 0 8px 8px;
-}
-
-.gallery-image:hover .image-title-overlay {
-  opacity: 1;
-}
-
 /* ================= Image Modal/Zoom ================= */
 .modal {
   display: none;
@@ -566,28 +682,10 @@ function renderTabs() {
         const grid = document.createElement('div');
         grid.className = 'projects-grid';
         
-        // Check if this is a gallery (simple image list)
-        if (subtab.galleryImages) {
-          subtab.galleryImages.forEach(src => {
-            const card = document.createElement('div');
-            card.className = 'project-card image-only-card';
-            const imgDiv = document.createElement('div');
-            imgDiv.className = 'project-image gallery-image';
-            imgDiv.onclick = () => openModal(src);
-            const img = document.createElement('img');
-            img.src = src;
-            img.alt = src.split('/').pop();
-            img.loading = 'lazy';
-            imgDiv.appendChild(img);
-            card.appendChild(imgDiv);
-            grid.appendChild(card);
-          });
-        } else if (subtab.projects) {
-          subtab.projects.forEach(project => {
-            const card = createProjectCard(project);
-            grid.appendChild(card);
-          });
-        }
+        subtab.projects.forEach(project => {
+          const card = createProjectCard(project);
+          grid.appendChild(card);
+        });
         
         content.appendChild(grid);
       });
