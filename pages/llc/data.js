@@ -12,6 +12,21 @@ const projectData = [
     tabTitle: "Hardware Design",
     tabLink: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/03_hw_design",
     subtabs: [
+{
+        subtabTitle: "System Overview & Specifications",
+        subtabLink: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main",
+        projects: [
+          {
+            title: "LLC hardware Architecture",
+            description: "Overview of the hardware architecture of the LLC converter, including the main components and their interactions.",
+            image: "pdfs/HV_architecture_of_the_LLC converter.png",
+            pdf: "pdfs/HV_architecture_of_the_LLC converter.pdf",
+            folder: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/02_architecture"
+          }
+
+        ]
+      },
+
       {
         subtabTitle: "Design Justification",
         subtabLink: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/03_hw_design/01_design_justification",
@@ -36,6 +51,13 @@ const projectData = [
             image: "pdfs/01_LLC_48v_LLC_Magnetic_Cores_V3.png",
             pdf: "pdfs/01_LLC_48v_LLC_Magnetic_Cores_V3.pdf",
             folder: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/03_hw_design/01_design_justification/01_transformer_and_Lr_cores"
+          }, 
+          {
+            title: "Design and validation of flyback 400V/12V",
+            description: "Design and validation of the flyback converter used as auxiliary power supply for the LLC converter.",
+            image: "pdfs/FlyBack_DJ_and_test.png",
+            pdf: "pdfs/FlyBack_DJ_and_test.pdf",
+            folder: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/03_hw_design/01_design_justification/07_power_supp/01_FlyBack"
           }
         ]
       },
@@ -128,6 +150,13 @@ const projectData = [
             pdf: "pdfs/Gain_and_tank_characterization_V0.pdf",
             folder: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/05_validations/05_Gain_and_LLC_Tank_charac"
             
+          }, 
+          {
+            title: "Design and validation of flyback 400V/12V",
+            description: "Design and validation of the flyback converter used as auxiliary power supply for the LLC converter.",
+            image: "pdfs/FlyBack_DJ_and_test.png",
+            pdf: "pdfs/FlyBack_DJ_and_test.pdf",
+            folder: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/03_hw_design/01_design_justification/07_power_supp/01_FlyBack"
           }
         ]
       }
