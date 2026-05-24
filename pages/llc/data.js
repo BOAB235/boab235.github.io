@@ -17,6 +17,13 @@ const projectData = [
         subtabLink: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main",
         projects: [
           {
+            title: "One Page Project Summary",
+            description: "A concise one-page overview of the 1200W resonant DC-DC converter, detailing system architecture, hardware specifications, and experimental validation results.",
+            image: "pdfs/OnePageLLC_1200w400v48v-1.png",
+            pdf: "pdfs/OnePageLLC_1200w400v48v.pdf",
+            folder: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/06_One_Page"
+          }, 
+          {
             title: "LLC hardware Architecture",
             description: "Overview of the hardware architecture of the LLC converter, including the main components and their interactions.",
             image: "pdfs/HV_architecture_of_the_LLC converter.png",

@@ -1,0 +1,15 @@
+FlyBack_DJ_and_test.pdf  |  48 pages
+Gain_and_tank_characterization_V0.pdf  |  39 pages
+EMC_Conducted_Emissions_Test_V4.pdf  |  30 pages
+03_LLC_48v_LLC_output_capa_v4.pdf  |  22 pages
+01_LLC_48v_LLC_Magnetic_Cores_V3.pdf  |  22 pages
+LLC_DCDC_V5_Gerber_and_layout.pdf  |  12 pages
+01_LLC_48v_LLC_tank_design_note_v2.pdf  |  11 pages
+HV_architecture_of_the_LLC converter.pdf  |  11 pages
+LLC_Safety_tests_V0.pdf  |  9 pages
+LLC_1200W_Efficiency_test.pdf  |  9 pages
+LLC_DCDC_V5_Modifications.pdf  |  7 pages
+LLC_DCDC_V5.pdf  |  7 pages
+LLC_DCDC_V5_BOM.pdf  |  1 pages
+
+TOTAL PAGES = 228
