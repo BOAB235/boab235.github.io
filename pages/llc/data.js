@@ -65,7 +65,15 @@ const projectData = [
             image: "pdfs/FlyBack_DJ_and_test.png",
             pdf: "pdfs/FlyBack_DJ_and_test.pdf",
             folder: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/03_hw_design/01_design_justification/07_power_supp/01_FlyBack"
-          }
+          }, 
+          {
+            title: "PCB calculation",
+            description: "PCB sizing: Trace width, current capacity, thermal constraints, and isolation distances.",
+            image: "pdfs/PCB_design_and_calculation.png",
+            pdf: "pdfs/PCB_design_and_calculation.pdf",
+            folder: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/03_hw_design/01_design_justification/07_power_supp/01_FlyBack"
+          }, 
+
         ]
       },
       {
