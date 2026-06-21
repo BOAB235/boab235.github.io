@@ -172,6 +172,13 @@ const projectData = [
             image: "pdfs/FlyBack_DJ_and_test.png",
             pdf: "pdfs/FlyBack_DJ_and_test.pdf",
             folder: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/03_hw_design/01_design_justification/07_power_supp/01_FlyBack"
+          }, 
+          {
+            title: "Gate driver and double pulse tests",
+            description: "Validation of the gate driver primary and secondary side, bootstrap circuit, double pulse test and gate resistor definition.",
+            image: "pdfs/gateDriverAndDoublePulseTests.png",
+            pdf: "pdfs/gateDriverAndDoublePulseTests.pdf",
+            folder: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/05_validations/04_driver_and_double_pulses"
           }
         ]
       }
