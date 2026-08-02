@@ -60,6 +60,13 @@ const projectData = [
             folder: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/03_hw_design/01_design_justification/01_transformer_and_Lr_cores"
           }, 
           {
+            title: "Mosfet and drivers",
+            description: "Design of the primary/secondary mosfets and drivers",
+            image: "pdfs/mosfetsAndDrivers.png",
+            pdf: "pdfs/mosfetsAndDrivers.pdf",
+            folder: "https://github.com/BOAB235/Design_of_1200W_LLC_DCDC/tree/main/03_hw_design/01_design_justification/02_mosfets"
+          }, 
+          {
             title: "Design and validation of flyback 400V/12V",
             description: "Design and validation of the flyback converter used as auxiliary power supply for the LLC converter.",
             image: "pdfs/FlyBack_DJ_and_test.png",
